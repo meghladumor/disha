@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .heart {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: relative;
+      margin: 20px auto;
+      transform: rotate(-45deg);
+      display: none;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    .message {
+      font-size: 18px;
+      color: green;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Type a Name to See the Heart</h1>
+  <input type="text" id="nameInput" placeholder="Enter a name">
+  <button onclick="showHeart()">Submit</button>
+  <div class="heart" id="heart"></div>
+  <p class="message" id="message">Hello, Disha! ❤️</p>
+
+  <script>
+    function showHeart() {
+      const input = document.getElementById("nameInput").value.trim();
+      const heart = document.getElementById("heart");
+      const message = document.getElementById("message");
+
+      if (input.toLowerCase() === "disha") {
+        heart.style.display = "block";
+        message.style.display = "block";
+      } else {
+        heart.style.display = "none";
+        message.style.display = "none";
+        alert("Name is not Disha!");
+      }
+    }
+  </script>
+</body>
+</html>
