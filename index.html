@@ -64,6 +64,11 @@
       if (input.toLowerCase() === "disha") {
         heart.style.display = "block";
         message.style.display = "block";
+
+        // Set a timeout to refresh the page after 2 seconds
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
       } else {
         heart.style.display = "none";
         message.style.display = "none";
